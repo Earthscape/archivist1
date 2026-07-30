@@ -1,0 +1,109 @@
+Loren Heyns  5:22  
+How's it going? I was a university professor. I'd always come late. I think I'm still eating dinner. I'm going to turn off the camera until a few more people arrive. Everyone's week is going good. What's up, the shift Hey Ravi, welcome.
+
+Ravi Pareshbhai Kakadia  6:17  
+Hey Loren,
+
+Loren Heyns  6:18  
+how's your week going?
+
+Ravi Pareshbhai Kakadia  6:21  
+Good, good,
+
+Loren Heyns  6:22  
+that's good. I rushed home, and just almost done with dinner here. So, have you tinkered with the output yet?
+
+Ravi Pareshbhai Kakadia  6:36  
+Oh, I haven't done anything, actually. I haven't been assigned any tasks yet, so I was thinking maybe ask you today again about what I should work with.
+
+Loren Heyns  6:48  
+Yeah, we've got a free Trippio API key now, so we can start sending some props to that. It's going to be where the abundance engine tucks into the arts engine, so you could actually, you know, kind of focus on the project board setup that you've been working on to figure out some steps for this. So did I give you the API key yet,
+
+Ravi Pareshbhai Kakadia  7:22  
+I I created the PI key, so
+
+Speaker 1  7:26  
+I thought so. I
+
+Ravi Pareshbhai Kakadia  7:26  
+already had it. Yeah,
+
+Loren Heyns  7:28  
+I shared it with one other person. Put that in Discord,
+
+Ravi Pareshbhai Kakadia  7:37  
+so the models. How do we connect arts engine and abundance engine? Like
+
+Loren Heyns  7:46  
+the idea would be that the arts engine pulls a file containing rows, maybe a csv file that are the different props, and then we simultaneously have another project that is like Comfy UI, which is like a storyboard management process. So I think we could manage each row as like a component, like a d component. So what would be really fascinating would be to find like some form of detailed specs that we could use as like our driving area for the input, but mostly I think we're going to just send in images and say, you know, creative creative d rendering of this element of the image, so those are all things we can look for more experimental. I posted on Discord, like we want to try to focus on both desalination and deep nuclear, which is very broad, but the idea would be to actually find some other GitHub repos that are already doing similar things, so that that itself could be part of the research that we put in the project board, so everyone who's just joining, what Ravi is set up is a project board in our, is it in, is it separate from the projects repo? I think we did it right off of projects, but it's first time we've like started to do this separate from our project hub, and can like assign issues and do all that you know, potentially powerful workflow. So, does anyone else use the whole board system in GitHub, similar to the Jira experience? I think. Do you want to share any of the work you've got on that, Ravi, or see
+
+Ravi Pareshbhai Kakadia  9:46  
+if actually I haven't started yet, like just can't figure out what to do, like I'm pretty,
+
+Speaker 1  9:56  
+that's why I'm asking
+
+Ravi Pareshbhai Kakadia  9:57  
+you to just,
+
+Loren Heyns  9:58  
+yeah, so last week we like we tinkered and we were like, "Oh, this is confusing, but it felt, and then, well, after that, I went through, and I was able to associate the issue from the issue itself. So, you go to the issue, and there's on the right side, there's like project section, you can choose the call it Arts Engine meets,
+
+Ravi Pareshbhai Kakadia  10:20  
+yeah. So, so we can create like sub tasks, and then like issues, basically, and then we can assign them to like to do, and multiple people can work with that project board, and they can assign themselves to that issue, and then if they are working on that issue, they put it in progress, and stuff like that. It's like Jira, Jira itself. When you're done with that issue, you, you move that issue to done category, done more. And yes, like that, we create many sub issues as we move on with the project. And once we are done with the whole project. I mean, there will be no issues, so no need for the board. Then
+
+Loren Heyns  11:06  
+I have a really exciting workflow idea. So, we have Rajat's note taker in attendance every week, and I think what we should do is put issues in workflows that basically say go to the meeting notes, convert those into issues, wait for them to be approved, and then execute those. So, from today's, we'd get this, like, go out, you know, we basically have an issue that would say we want to find some sources of existing desalinization models or photographs, you know, things like that, that we could add detail to, and really work towards us being more of like the reviewer, saying that's great, no, we don't like that, you know, we just kind of assume this role of voting, I don't know if we have like multiple people approving or how we want to manage that, but we also,
+
+Ravi Pareshbhai Kakadia  12:00  
+you mean, you mean something like having a note taker note everything down, and once that's done, we automate the process of creating the issue, is that it
+
+Loren Heyns  12:10  
+exactly? So note taker is is in the call, and he's using Otter, and then we would basically just repurpose that, and ideally it's even just like a single endpoint pointed at the outer one, so every time a new meeting occurs, it triggers this process. Hey, Kashmir, welcome, Ravi, and I were just talking about automating the note takers data from our meeting into issues within the GitHub project tracker.
+
+Ravi Pareshbhai Kakadia  12:49  
+I can work on that.
+
+Loren Heyns  12:50  
+That'd be awesome. Yeah, I mean, just even just tinkering, because there are a few hurdles, and we want, we want to see, like, is there, like, an accessible API for Rajat note taker, you know, there may be fees involved on some of these approaches. In the very least, we can just, you know, experiment with like a very rough overview of the meeting, and then, you know, letting GitHub kind of like become our AI.
+
+Ravi Pareshbhai Kakadia  13:19  
+Got it? Can I, can I work with my own repo for now, before that.
+
+Loren Heyns  13:26  
+I think that's always best to try to like spin things up in your own, see what GitHub offers, because I think there already are processes like this, and what we're wanting to work towards is where, like, we are using the browser more often to do our edits, and there's a, there's a couple different ways. One is called Svelte, that will have like integrated file pushes right to GitHub. So I mean I'm always advocating Cloud Code CLI or Open Codec, Open AI Codex, and GitHub has their own like versions, right? And Copilot, so that there's also like Gemini is just moving forward fast, you know. Apple just agreed to put Gemini in their app, so that's really interesting in terms of a way that talk to the AI coding, you know, people were predicting Apple would come from behind, and I think that's a smart move. They've got the big, the big systems that Google offers, you know, are unmatched in scale, even though Claude signing contracts with SpaceX. I kind of curious, how Meta Facebook is going to like leap into the picture, because they're putting together a huge data center in Ohio, Prometheus. It's gonna, I think it's going to dwarf Colossus, but don't, don't quote me on that, but I think that's going to be a big factor. But right before the call, I was my wife about the whole Stay Sex IPO. Do you guys think it'll stay above the initial ask for more than a week, or will it drop in the first day? Is there, you're coming out of the gate at like two times valuation, and you know, if you work for SpaceX, you can, you can buy it at that price, I think it's 130 $535 but you're locked in, so you can't sell, right, the public can buy at any price, but I feel like the market is just going to go up, down a lot the next year or six months, or whatever. All right, so let me cycle back. Anything new, Kashmira, on the reality stream front? Anyone else?
+
+Ravi Pareshbhai Kakadia  15:56  
+Oh, I.. I don't have anything new on reality stream,
+
+Loren Heyns  16:01  
+okay. No, no worries. I haven't given it much attention either, but we do have a GPU process that works now. We have reports. I don't remember if I showed those last week, but you go in there now, and you click on the reports link, you'll see a new report that Rajat has sent to the output, which means like the whole Colab runs. It uses the GPU version, and it's out there. So Rajat will read this later through his note taker. Thank you, Rajat. Some work. And now the next step is to bring that Colab down to the backup, the dash bk bk up file, and you can either do anyone on the team can try this, either the pure python.py backup or the interactive notebook python. I prefer the pure python, because then if you have an issue, it's much easier for Quad or Open AI Codex to like explore and give you recommendations for fixing it, and then what you, what you do is you go back to the Colab and you post your fix for Gemini and explain it, because if you, if you try to get Gemini to do much with Colab, Gemini tends to want to put the utility calls in individual steps, and I think that's why it broke, because Gemini uses older versions of the Python libraries to support NIV videos CPUs. They don't move quickly, obviously, and have stability, but it's more informative to like find these issues, and plus we're also looking at the non-GPU issue when we run it locally, so that's different than what the Colab is geared towards, ideally. I think that's the default, anyway. That's all out there. It's super cool way to learn machine learning with the six different models, so what I've been focused on. Let's see here today. I updated a process that shows maps, and this is like a tool where if you have like drones, you can do like a flyover and you can record it in d, so a person can just be like, I'm looking at this, I'm looking at that. So that's going to really plug in nicely with our, our new process. Let's Ravi, I'm going to take the Trippio API key. I'm going to post, paste it in here, and just see what happens, right? We haven't tried this yet, right? So you got the API keys for us, and share my screen if there's a.. if there's anything else anyone wants to look at, just, you know, let me know here. Don't be shy, and wait till the end, so sharing my screen, let me see here,
+
+Ravi Pareshbhai Kakadia  19:15  
+there's
+
+Loren Heyns  19:54  
+Okay, here we go, so if you're new to the team, this is the page that you'll often, I often go back to it because it's, I find it super easy to just cut and paste this, these three lines code, so whenever I'm starting a new cloud session, or if I'm using Open AI, I'll do something like that. I haven't used Open AI for a few weeks, but I used to use a lot of seems to not be timing out on me, which is cool. Quad has a new model called Fable that I saw in the, hey, the top here. It looks like Fable might actually be like a fee-based model that's charged a little differently. I'm not really sure what this means here. So, it says beat Fable five news model complex writing work, including your plan limits, included in your plan limits until june 22 then switch to usage credits to continue. So this is what they're going to do to get beyond the $20 per month thing that I think a lot of people are enjoying, they're going to say, like, you got to pay some fixed rate, but then you, if you want the premium model, you're going to pay like Pervert class, then top of that, for every request, so you don't like kind of start with like an unlimited time, you know, it's not all the time, but you can every six hours, right now it's like come back and keep working, but if it's going to be the switch to credits to continue, then I'm assuming that's going to make them a lot of money, and people who are like me, who are paying $20 are going to try to get me to pay, like, what's my pain threshold, $40 a month or something, they're going to get me to my pain threshold. So, anyway, this, the cool thing about this page is that when you have it installed in web root, you just go to local host 88 seven, hit return, and then it just recognizes your own local host, takes you here, and you can get your useful code snippets. Another one, if, if you're, if you're just jumping in, I think the course you're just starting eight seven server, so I wonder if I should make this more evident now. I like the idea that people are always just using like purely coding, but if you go to Without AI, you can see all these other versions, so it's I basic Python command to start a server. Sorry, there it is. So that's your standard command, right? It's when your friendliest, easiest one to do has no server side Python. The second one here is our server side Python, which is powerful, but I rarely use it. Maybe if I was in the cloud repo, I would have invoked that. Then I had a couple of requests that related to this extra repos, so with AP, with the AI, you can just say, like, what is using the guidance, basically fork and clone the extra repos. I think it kind of like it will automatically.. well, I'm not sure. I mean, the point of the extra repos is really that they don't just automatically get moved back and forth, so you end up using your GitHub desktop with those more often, but that's good, because the project repot, the abundance engine, is one of those repos currently, with the idea that it's not really at this point like an essential part of the model earth deployment. It's not really a part of anything at this point, it's kind of like a very experimental process, so we don't want someone who's like, I started up your tools and I got all this abundance projection scenarios, and I don't agree with someone, but we don't, we have to have a look at disclaimer, that's what the AI gave us, and we're just learning ourselves, so we'll see where those go. I mean, there's some pretty exciting stuff, and I actually have two more that, if you're looking for a project, these would be great to add. So we have five right now, and they're all related to energy and water, and so the two additional ones are in the Discord.
+
+Loren Heyns  24:20  
+They are the San Diego de Sal plant and the Savannah desal plant, and I feel there's like one more, so if you, if you see it, bring it up, but let's go back to what we were going to do, which was experiment with the Arts engine, so I'm going to just do it locally, because then if we do make changes, we can vibe code them, but I'm assuming this would also work under Model Earth and DreamStudio as well, because all this is like static keys are stored in the browser, so we're going to add Trippio key here, Tripo, not Trippio, it's more fun to say Trippie, so it starts with TSK, so I'm going to jump over to Ravi email, grab P, the whole other track that I haven't touched on is that we've got our Voyage AI ingestion training working with individual repos now, so Monique has got that set up and Diva is working on that one, so that really relates to what we're describing when we look at like project management in an interesting way, because it's like got full awareness of the code base, right, so we can partition it out, and we can say, like, well, just use the Rust repos for this question, and hopefully we inform this process that we're going to use with GitHub, so that it can lean into our RAG training, so all these kind of meet in one unified experience, so back to the I'm just going to search for TSK underscore, I might well know, and Ravi sent me this, I'll switch the route, Ravi sent me a document, and we learned in the process that this other one, Mesh, she does not have a free version of the API, so now, like, if you're tinkering in there, like, go ahead and change this, and just say that, yeah, I guess you already got that Pro plan required for API access, like, makes me question if we should even include them if we find some other good options, I wonder if, like, Google has a offering that's free for, like, a trial basis. I'm assuming they have, like, some that are paid. Okay, so getting this key here. So, in general, we're, we're just going to like share this key, and but I don't want to share it too broadly, because I don't want it to be exceeded, but I don't think there's a ton of us just cranking out the requests, so I'm not worried about it. Okay, so curious, if I see it, so you know that's if I were to just start typing, no, that's cool, that's weird. Is that what you would expect? Because it's like, don't see it, that seems the opposite. I don't know if any, if anyone agrees, but like, if I see an eye, that's like, oh, show me the key, but I also don't want to see that when the page loads, because it looks like something's wrong. The eye is broken, all right. So we're going to keep the eye as it was. Maybe we did a different icon. Don't know. I'm going to paste the trip o key here and save it. Okay. Now it says it's validating. Okay, so now it's this little blue box is checked. So we designed this interface to work with our chat Veracel experience, which was originally like a Node page. It's the only page we took out of Node and made static, so we can use it like in any, any different site, any back end. So, what we have to do next is now that we've selected that model. Let's see. So, say Gemini is a current model. So, now if I go here, if it's really advanced, it will already show us trip trip you, but it's not selected.
+
+Ravi Pareshbhai Kakadia  29:00  
+We can only save the API keys in local and non, not in the live website.
+
+Loren Heyns  29:09  
+No, it should be the same, because it saves it in the browser cache. Now, if you put it in the dot env file, that only works locally, because we don't have a back end to pull the env. At this point I've asked Gary if we could use the Azure back end, but I'm not sure where that would lead, because we might also have to use like that kind of a.net Hey,
+
+Speaker 1  29:32  
+Loren, I'm here. I just joined.
+
+Loren Heyns  29:34  
+Hey Gary, hey, if we take our key process.. well, I guess the first question is, with our Azure deployment, could we take the whole web route and pull that to Azure hosting research? That,
+
+Speaker 1  29:51  
+what do you mean?
+
+Loren Heyns  29:53  
+So, right now you have, like, the pipeline folder, do you like pull that into some like back-end system that posts that,
+
+Transcribed by https://otter.ai
