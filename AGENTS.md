@@ -19,7 +19,10 @@ output/<YYYY-MM-DD>/<model-used>/action-item.txt
 
 ## Processing workflow
 
-1. Discover unprocessed transcripts under `transcripts/`.
+1. Discover unprocessed transcripts under `transcripts/`. A transcript date is
+   considered processed when `output/<YYYY-MM-DD>/` exists, regardless of which
+   model directories it contains. Skip that date during normal processing
+   unless the user explicitly requests reprocessing.
 2. Derive the meeting date from the transcript directory. If the transcript
    clearly gives a different date, flag the mismatch instead of silently
    choosing one.
