@@ -1,0 +1,67 @@
+ACTION ITEMS
+
+1. Action: Paste "Presidio" in the chat.
+   Owner: Speaker 1
+   Due date: Not specified
+   Evidence excerpt: "Let me let me paste it in the chat."
+   Speaker: Speaker 1
+   Timestamp: 9:39
+
+2. Action: Create a guideline using a snippet.
+   Owner: Unassigned
+   Due date: Not specified
+   Evidence excerpt: "we can try to grab that one little snippet that I just added, and we'll just create like a a guideline."
+   Speaker: Loren Heyns
+   Timestamp: 10:34
+
+3. Action: Share screen.
+   Owner: Loren Heyns
+   Due date: Not specified
+   Evidence excerpt: "So I'll share my screen so I'm tinkering here, and you can see."
+   Speaker: Loren Heyns
+   Timestamp: 11:39
+
+4. Action: Pull down the archivist repo and do an experiment.
+   Owner: Loren Heyns
+   Due date: Not specified
+   Evidence excerpt: "So let me pull down the archivist here, and we'll we'll do an experiment."
+   Speaker: Loren Heyns
+   Timestamp: 15:45
+
+5. Action: Add a subfolder under Archivist One for GitHub processing automation using LangChain.
+   Owner: Speaker 1
+   Due date: Not specified
+   Evidence excerpt: "So, as you like automate the GitHub processing using LangChain, add like a subfolder under Archivist One. Maybe call it LangChain or something that you feel is a name for what you're doing."
+   Speaker: Loren Heyns
+   Timestamp: 22:22
+
+6. Action: Use Javascript instead of Python for the project.
+   Owner: Speaker 1
+   Due date: Not specified
+   Evidence excerpt: "originally, I was thinking about using Python for this, but I will. I'm going to use Javascript now since everybody's like, we have built it using Javascript. So"
+   Speaker: Speaker 1
+   Timestamp: 22:54
+
+7. Action: Add additional folders to the Veracel root if running a Javascript backend.
+   Owner: Unassigned
+   Due date: Not specified
+   Evidence excerpt: "And what we'll do is if we run a Javascript backend, we can add additional folders here for"
+   Speaker: Loren Heyns
+   Timestamp: 26:19
+
+8. Action: Turn on GitHub Pages for Veracel root and hit reload.
+   Owner: Loren Heyns
+   Due date: Not specified
+   Evidence excerpt: "I'm going to turn on GitHub Pages, and then everything, any anything public, and there's like 100 repos here. I don't repeat that when you process AI repos. But what's cool now that I've turned that on, I'm going to hit reload."
+   Speaker: Loren Heyns
+   Timestamp: 27:00
+
+DECISIONS
+
+1. The preferred LLM framework is Claude.
+2. The LangChain part should work with the Model Earth API key provider settings page.
+
+OPEN QUESTIONS
+
+1. What framework would be ideal for building this?
+2. Should the LangChain part be synced with the Model Earth API key provider settings?
