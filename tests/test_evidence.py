@@ -1,10 +1,17 @@
 import unittest
 
 from archivist.evidence import EvidenceVerificationError, verify_evidence_excerpts
+from archivist.gemini import SYSTEM_PROMPT
 from archivist.models import ActionItem, ActionReport
 
 
 class EvidenceTests(unittest.TestCase):
+    def test_prompt_requires_exact_contiguous_evidence(self) -> None:
+        self.assertIn("copied exactly from the\n  transcript", SYSTEM_PROMPT)
+        self.assertIn("Select one contiguous passage", SYSTEM_PROMPT)
+        self.assertIn("add ellipses", SYSTEM_PROMPT)
+        self.assertIn("omit that action", SYSTEM_PROMPT)
+
     def test_accepts_excerpt_with_different_whitespace(self) -> None:
         report = ActionReport(
             actions=[
@@ -36,4 +43,3 @@ class EvidenceTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

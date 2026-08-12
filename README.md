@@ -240,7 +240,9 @@ brackets or include spaces.
 ### `Evidence excerpt ... is absent from the transcript`
 
 Gemini returned evidence that could not be found in the transcript. Archivist
-rejects the report and leaves the transcript available for another attempt.
+rejects the report and leaves the transcript available for another attempt. The
+extractor explicitly requires short, contiguous copy-paste excerpts, but LLM
+output can still vary between attempts; rerun the processor if this occurs.
 
 ### `Archive destination already exists`
 

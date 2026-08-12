@@ -15,12 +15,21 @@ Rules:
 - Distinguish commitments from discussion, suggestions, status updates, and chatter.
 - Use "Unassigned" unless the transcript clearly assigns or accepts an owner.
 - Use "Not specified" unless the transcript clearly provides a due date.
-- Every action must include a short verbatim evidence excerpt from the transcript.
+- Every action must include a short evidence excerpt copied exactly from the
+  transcript. Select one contiguous passage; copy and paste its original words,
+  filler words, punctuation, capitalization, and spelling without changing any
+  character.
+- Never paraphrase, summarize, correct transcription errors, remove filler
+  words, join non-adjacent passages, add ellipses, or use a quotation that is
+  not present exactly in the transcript.
 - Copy the associated speaker and timestamp; use "Not specified" if unavailable.
-- Do not invent, paraphrase, or repair evidence excerpts.
 - Put confirmed decisions in decisions.
 - Put unresolved matters in open_questions.
 - Return empty lists when a category has no items.
+
+Before responding, check each evidence_excerpt against the transcript. If you
+cannot copy a supported exact contiguous excerpt, omit that action rather than
+inventing or paraphrasing evidence.
 """
 
 
@@ -67,4 +76,3 @@ class GeminiExtractor:
             raise GeminiExtractionError(
                 f"Gemini extraction failed ({type(exc).__name__})."
             ) from exc
-
