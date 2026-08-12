@@ -130,6 +130,59 @@ Without activating the virtual environment:
 The model name is required and must be a filesystem-safe lowercase value using
 letters, numbers, dots, underscores, or hyphens.
 
+## Automate processing with GitHub Actions
+
+The Phase 2 workflow at `.github/workflows/process-transcripts.yml` runs when a
+commit to `main` adds or changes a matching transcript. It processes all pending
+transcripts and opens a draft pull request containing the generated reports and
+archived source files.
+
+### 1. Add the repository secret
+
+In GitHub, navigate to:
+
+```text
+Settings -> Secrets and variables -> Actions -> New repository secret
+```
+
+Create a secret named:
+
+```text
+GEMINI_API_KEY
+```
+
+Paste the Gemini API key into the **Secret** field, then select **Add secret**.
+
+### 2. Allow Actions to create pull requests
+
+Navigate to:
+
+```text
+Settings -> Actions -> General -> Workflow permissions
+```
+
+Enable **Allow GitHub Actions to create and approve pull requests**. Archivist
+uses this permission only to create a draft PR; it does not approve or merge
+the PR. Also select **Read and write permissions**, then select **Save**.
+
+Complete the secret and workflow-permission setup before pushing the workflow
+file to GitHub for the first time.
+
+### 3. Upload a transcript
+
+Commit or upload the transcript to `main` under:
+
+```text
+transcripts/<YYYY-MM-DD>/<source>/transcript.txt
+```
+
+The workflow runs the offline tests before accessing the Gemini key. After all
+pending transcripts succeed, it creates a unique automation branch and draft
+pull request for human review.
+
+You can also start the workflow manually from **Actions -> Process transcripts
+-> Run workflow** and optionally supply a different Gemini model ID.
+
 ## Successful result
 
 For the example command, Archivist writes:
@@ -194,8 +247,7 @@ rejects the report and leaves the transcript available for another attempt.
 The same date and source have already been archived. Archivist refuses to
 overwrite the existing file.
 
-## Current Phase 1 limitation
+## Current limitations
 
 Archivist currently processes one transcript source per meeting date. Combining
-multiple sources into one date-level report and automatically triggering the
-processor with GitHub Actions are planned for later phases.
+multiple sources into one date-level report is planned for a later phase.
