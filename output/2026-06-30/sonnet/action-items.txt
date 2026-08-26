@@ -1,0 +1,57 @@
+ACTION ITEMS
+
+1. Action: Make the transcript parsing process smoother in the Archivist repo
+   Owner: Ravi Kakadia
+   Due date: Not specified
+   Evidence excerpt: "Okay, I will do that then. I'll make the parsing smoother."
+   Speaker: Ravi Kakadia
+   Timestamp: 11:50
+
+2. Action: Look into using pre-existing guardrails for privacy checks in the parsing process
+   Owner: Ravi Kakadia
+   Due date: Not specified
+   Evidence excerpt: "I will look into the guardrails thing so we can use it to yeah"
+   Speaker: Ravi Kakadia
+   Timestamp: 12:17
+
+3. Action: Look into automating the upload of transcripts to GitHub
+   Owner: Ravi Kakadia
+   Due date: Not specified
+   Evidence excerpt: "I also look into the automating transcripts upload to GitHub. Yeah, I'll I'll do that."
+   Speaker: Ravi Kakadia
+   Timestamp: 12:17
+
+4. Action: Fork the Archivist One repo (rather than cloning and pushing directly) to work in it
+   Owner: Ravi Kakadia
+   Due date: Not specified
+   Evidence excerpt: "I think it's best to fork it. That's just kind of the general way that we've approached it."
+   Speaker: Loren Heyns
+   Timestamp: 13:05
+
+5. Action: Email Loren to join other project groups
+   Owner: Neha
+   Due date: Not specified
+   Evidence excerpt: "I'll email you, Loren. Thank you."
+   Speaker: Speaker 3
+   Timestamp: 28:47
+
+6. Action: Add the feed repo as the second sub module in the Veracel root
+   Owner: Loren Heyns
+   Due date: Not specified
+   Evidence excerpt: "I'm gonna add the feed repo. So Archie, this is what you're gonna work with. This is gonna be the second sub module in the Veracel root."
+   Speaker: Loren Heyns
+   Timestamp: 8:14
+
+DECISIONS
+
+1. Use a pre-existing guardrails solution for privacy protection rather than building one from scratch, since 'a lot of people' are already thinking about it.
+2. Ravi will fork the Archivist One repo rather than clone and push directly to it.
+3. Steer toward using a Node.js task to kick off the LLMs, consistent with how the rest of the Veracel repo is managed with Node/JavaScript-based server-side work.
+4. RAG is no longer viewed as essential given how large LLM context windows have become, so the team will expand on the existing chat repo work rather than reinvent the RAG process.
+
+OPEN QUESTIONS
+
+1. How to avoid redundancy with package.json files existing in more than one place across the Veracel root sub modules.
+2. What limitations the free Gemini tier would have for sending large repo contexts.
+3. Whether the team will pay for Otter's paid options to automate pushing transcripts to repos, or continue doing it manually.
+4. How to best design the feed player's UI (icon placement, expansion/full-screen behavior, draggable chat area) - discussed but not finalized.

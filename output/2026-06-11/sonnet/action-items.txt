@@ -1,0 +1,34 @@
+ACTION ITEMS
+
+1. Action: Work on automating the note taker's meeting data into GitHub project tracker issues
+   Owner: Ravi Pareshbhai Kakadia
+   Due date: Not specified
+   Evidence excerpt: "I can work on that."
+   Speaker: Ravi Pareshbhai Kakadia
+   Timestamp: 12:49
+
+2. Action: Focus on setting up the project board for the Arts Engine / Abundance Engine integration
+   Owner: Ravi Pareshbhai Kakadia
+   Due date: Not specified
+   Evidence excerpt: "you could actually, you know, kind of focus on the project board setup that you've been working on to figure out some steps for this"
+   Speaker: Loren Heyns
+   Timestamp: 6:48
+
+3. Action: Experiment with the Arts engine locally using the newly added Tripo API key
+   Owner: Loren Heyns
+   Due date: Not specified
+   Evidence excerpt: "let's go back to what we were going to do, which was experiment with the Arts engine, so I'm going to just do it locally"
+   Speaker: Loren Heyns
+   Timestamp: 24:20
+
+DECISIONS
+
+1. Keep the API key visibility ('eye') icon as it currently is on the interface.
+2. Continue managing GitHub project board using issues moved through To Do, In Progress, and Done categories, similar to Jira.
+
+OPEN QUESTIONS
+
+1. Do you guys think it'll stay above the initial ask for more than a week, or will it drop in the first day? (regarding the SpaceX IPO)
+2. I wonder if, like, Google has a offering that's free for, like, a trial basis. (regarding alternative APIs to Mesh, which requires a paid Pro plan)
+3. So, right now you have, like, the pipeline folder, do you like pull that into some like back-end system that posts that, (question to Gary about Azure deployment, left unresolved as transcript ends)
+4. Could we take the whole web route and pull that to Azure hosting research? (unresolved question posed to Gary about using the Azure back end)
