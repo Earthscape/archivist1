@@ -4,8 +4,6 @@ import argparse
 import sys
 from pathlib import Path
 
-from dotenv import load_dotenv
-
 from .claude import ClaudeExtractionError, ClaudeExtractor
 from .processor import ProcessingError, process_transcript, resolve_paths
 
@@ -34,17 +32,10 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
-def load_environment(root: Path) -> None:
-    """Load local development secrets without overriding real environment values."""
-
-    load_dotenv(dotenv_path=root.resolve() / ".env", override=False)
-
-
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
 
     try:
-        load_environment(args.root)
         paths = resolve_paths(args.root, args.transcript, args.model)
         # A non-empty existing output means an earlier run finished report
         # writing but failed to archive. That recovery path needs no API call.
