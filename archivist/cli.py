@@ -6,7 +6,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-from .gemini import GeminiExtractionError, GeminiExtractor
+from .claude import ClaudeExtractionError, ClaudeExtractor
 from .processor import ProcessingError, process_transcript, resolve_paths
 
 
@@ -23,7 +23,7 @@ def build_parser() -> argparse.ArgumentParser:
     process_parser.add_argument(
         "--model",
         required=True,
-        help="Filesystem-safe lowercase Gemini model name.",
+        help="Filesystem-safe lowercase Claude model name.",
     )
     process_parser.add_argument(
         "--root",
@@ -48,9 +48,9 @@ def main(argv: list[str] | None = None) -> int:
         paths = resolve_paths(args.root, args.transcript, args.model)
         # A non-empty existing output means an earlier run finished report
         # writing but failed to archive. That recovery path needs no API call.
-        extractor = None if paths.output.exists() else GeminiExtractor(args.model)
+        extractor = None if paths.output.exists() else ClaudeExtractor(args.model)
         output = process_transcript(paths, extractor)
-    except (ProcessingError, GeminiExtractionError, ValueError) as exc:
+    except (ProcessingError, ClaudeExtractionError, ValueError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1
 

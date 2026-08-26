@@ -28,7 +28,7 @@ def supported_report() -> ActionReport:
                 timestamp="1:00",
             )
         ],
-        decisions=["Use Gemini."],
+        decisions=["Use Claude."],
         open_questions=["Which model should run?"],
     )
 
@@ -45,7 +45,7 @@ class ProcessorTests(unittest.TestCase):
         self.temporary.cleanup()
 
     def test_success_writes_output_and_archives_source(self) -> None:
-        paths = resolve_paths(self.root, self.source, "gemini-test")
+        paths = resolve_paths(self.root, self.source, "claude-test")
         extractor = FakeExtractor(supported_report())
 
         output = process_transcript(paths, extractor)
@@ -61,7 +61,7 @@ class ProcessorTests(unittest.TestCase):
         self.assertIn("Owner: Ravi", contents)
 
     def test_missing_evidence_leaves_source_and_no_output(self) -> None:
-        paths = resolve_paths(self.root, self.source, "gemini-test")
+        paths = resolve_paths(self.root, self.source, "claude-test")
         report = supported_report().model_copy(deep=True)
         report.actions[0].evidence_excerpt = "This does not exist."
 
@@ -73,7 +73,7 @@ class ProcessorTests(unittest.TestCase):
         self.assertFalse(paths.archive.exists())
 
     def test_existing_output_retries_only_archive(self) -> None:
-        paths = resolve_paths(self.root, self.source, "gemini-test")
+        paths = resolve_paths(self.root, self.source, "claude-test")
         paths.output.parent.mkdir(parents=True)
         paths.output.write_text("existing report", encoding="utf-8")
         process_transcript(paths, None)
@@ -84,7 +84,7 @@ class ProcessorTests(unittest.TestCase):
         self.assertFalse(paths.source.parent.parent.exists())
 
     def test_archive_preserves_nonempty_source_directories(self) -> None:
-        paths = resolve_paths(self.root, self.source, "gemini-test")
+        paths = resolve_paths(self.root, self.source, "claude-test")
         metadata = paths.source.parent / "notes.txt"
         metadata.write_text("Keep this file.", encoding="utf-8")
 
@@ -95,7 +95,7 @@ class ProcessorTests(unittest.TestCase):
         self.assertTrue(paths.source.parent.parent.exists())
 
     def test_new_report_requires_extractor(self) -> None:
-        paths = resolve_paths(self.root, self.source, "gemini-test")
+        paths = resolve_paths(self.root, self.source, "claude-test")
 
         with self.assertRaisesRegex(ProcessingError, "extractor is required"):
             process_transcript(paths, None)
@@ -109,7 +109,7 @@ class ProcessorTests(unittest.TestCase):
         second.write_text("Another source", encoding="utf-8")
 
         with self.assertRaisesRegex(ProcessingError, "one transcript source"):
-            resolve_paths(self.root, self.source, "gemini-test")
+            resolve_paths(self.root, self.source, "claude-test")
 
 
 if __name__ == "__main__":

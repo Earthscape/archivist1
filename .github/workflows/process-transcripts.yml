@@ -9,9 +9,9 @@ on:
   workflow_dispatch:
     inputs:
       model:
-        description: Gemini model ID
+        description: Claude model alias or model ID
         required: false
-        default: gemini-2.5-flash
+        default: sonnet
         type: string
 
 permissions:
@@ -44,6 +44,9 @@ jobs:
       - name: Install dependencies
         run: python -m pip install -r requirements.txt
 
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
       - name: Run offline tests
         run: python -m unittest discover -s tests -v
 
@@ -62,13 +65,13 @@ jobs:
         if: steps.pending.outputs.found == 'true'
         shell: bash
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          ARCHIVIST_MODEL: ${{ inputs.model || 'gemini-2.5-flash' }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          ARCHIVIST_MODEL: ${{ inputs.model || 'sonnet' }}
         run: |
           set -euo pipefail
 
-          if [[ -z "$GEMINI_API_KEY" ]]; then
-            echo "::error::The GEMINI_API_KEY repository secret is not configured."
+          if [[ -z "$CLAUDE_CODE_OAUTH_TOKEN" ]]; then
+            echo "::error::The CLAUDE_CODE_OAUTH_TOKEN repository secret is not configured."
             exit 1
           fi
 

@@ -1,7 +1,7 @@
 import unittest
 
 from archivist.evidence import EvidenceVerificationError, verify_evidence_excerpts
-from archivist.gemini import SYSTEM_PROMPT
+from archivist.claude import SYSTEM_PROMPT
 from archivist.models import ActionItem, ActionReport
 
 
