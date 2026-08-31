@@ -1,0 +1,56 @@
+ACTION ITEMS
+
+1. Action: Get car window part installed with the mechanic's help
+   Owner: Speaker 1
+   Due date: Tomorrow
+   Evidence excerpt: "So tomorrow I'm gonna go after work and try to get the guy to help me."
+   Speaker: Speaker 1
+   Timestamp: 4:27
+
+2. Action: Include Sanket on the email that is sent regarding the note-taker/transcript process
+   Owner: Speaker 1
+   Due date: Not specified
+   Evidence excerpt: "I will include you on the email that we send."
+   Speaker: Speaker 1
+   Timestamp: 5:17
+
+3. Action: Do a side-by-side comparison of how Claude Pro and Gemini pull to-dos out of the chat
+   Owner: Unassigned
+   Due date: Not specified
+   Evidence excerpt: "we're going to do a side by side comparison of how Quad Pro and Gemini pull to-dos out of the chat"
+   Speaker: Speaker 1
+   Timestamp: 9:29
+
+4. Action: Automate pulling the weekly transcripts (e.g., via CSV of transcript links) instead of relying on manual retrieval
+   Owner: Unassigned
+   Due date: Not specified
+   Evidence excerpt: "one of our our to-dos is to automate pulling these transcripts"
+   Speaker: Speaker 1
+   Timestamp: 12:19
+
+5. Action: Test whether the shared Otter transcript link works for others in the chat
+   Owner: Speaker 1
+   Due date: Not specified
+   Evidence excerpt: "I'm gonna put a link in the chat here and see if that link works for you."
+   Speaker: Speaker 1
+   Timestamp: 9:29
+
+6. Action: Attempt a second login try for the Superbase account (attempt 2 of 3)
+   Owner: Speaker 1
+   Due date: Not specified
+   Evidence excerpt: "I will do attempt number two of three."
+   Speaker: Speaker 1
+   Timestamp: 21:17
+
+DECISIONS
+
+1. We now support both Gemini and Claude Pro in our transcribing process.
+2. We're shifting from our use of the webroot as our primary dev area to our cloud root.
+3. We're switching from Superbase to making Neon the default.
+
+OPEN QUESTIONS
+
+1. We don't know if that's what the front of the varicel one is utilizing, because my notes are inferior.
+2. I'm curious how Ravi is approaching this because I think rather than scripting, He's giving, you know, read read me or prompt style guidance to the agents, so that may reduce our our ability to reproduce things, though.
+3. I get the impression that I may not have the login for this, which is Troublesome, I suppose.
+4. I don't know if there's a there's more of a direct tie between Google and SpaceX
