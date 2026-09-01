@@ -1,0 +1,130 @@
+Speaker 1  3:04  
+Hello, Rajat's note taker. Are you able to have a conversation, Rajat's note taker? Hey, Sam Cat. Just looking at Jeff's note-taking page.
+
+Speaker 2  4:12  
+Hello, Loren. How are you doing?
+
+Speaker 1  4:13  
+Hey, doing good. How are you doing?
+
+Speaker 2  4:15  
+Even I am doing good. Thanks for asking.
+
+Speaker 1  4:18  
+Sure. Might just be us today. Who knows? It's all very quiet these days.
+
+Speaker 2  4:24  
+Yeah, I know. I know.
+
+Speaker 1  4:27  
+I was up in Michigan and had a busy week. Things are getting back to normal. I still have to get my car window fixed.
+
+Speaker 2  4:37  
+Did you get it fixed?
+
+Speaker 1  4:38  
+No, the part came and it's it's huge. It's like almost two feet long. It's big. So tomorrow I'm gonna go after work and try to get the guy to help me. And I think it'll go pretty smooth. It was rain. It was raining. I was driving and trying to catch the rain with dripping through the plastic.
+
+Speaker 2  4:59  
+But is it getting covered in your insurance?
+
+Speaker 1  5:02  
+No, it's just it's a minor job. I don't think the deductible would even cover it. Wouldn't be worth it, you know. Okay, maybe 300, $400.
+
+Speaker 2  5:15  
+Okay, got
+
+Speaker 1  5:17  
+it. I don't know. I didn't even think of that, but that's yes, that could be possible. So I'm I'm going to share my screen. I'm curious what Rajat's note taker is picking up on here. Yep. So one of the new additions is that we now support both Gemini and Claude Pro in our transcribing process. And I've been looking at the new cloud root we've set up for deployment to both Cloudflare and Veracell. Okay. Not claw cloud root, but just cloud root. That's better. So this is the entry point. This is going to become our new web root. It's just the repo called Cloud Root. It's clean, a clean version with separate submodules for the basic components that originally worked with Veracell, but we're modifying them to work with these Cloudflare worker processes. That's pretty sweet. This is the worker folder that matches the Cloudflare setup. I will include you on the email that we send. You might already be there. Let me check here. Just wrote Diva to check on accessing the Veracell test site. Just starting with an old email here and seeing. I added anyone else. Who's there? What was that noise? Hey, Mustafa, up. How's it going? I was just telling Sanket that we're shifting from our use of the webroot as our primary dev area to our cloud root.
+
+Speaker 3  9:15  
+How's the bend up?
+
+Speaker 1  9:19  
+I can hear you. Yep.
+
+Speaker 2  9:21  
+Some speaking, but none of them was a few months. I'm very good. How are you?
+
+Speaker 1  9:29  
+Doing good. Been a busy, busy week, but it's pretty mellow now. So I'm looking at my email from Ravi. So Ravi is doing a process of transcribing these from the note taker. I guess he uses Rajat's note taker. I'm going to share this link to the note taker with within this email here. So there's the note taker taking notes about itself. This is Otter. Don't know if the link will work for everyone. I just copy the main link, but I'll start with that. Of course, we're not really putting any specific to-dos in today's Otter chat? I think Otter will time out at at 730. But what we want to do is we're going to do a side by side comparison of how Quad Pro and Gemini pull to-dos out of the chat, so I think I'll correct what I just said and say there will be one to-do in this chat to find, and we'll see if each of the agents can successfully find it. Okay, so from the email, I really I'm curious how Ravi is approaching this because I think rather than scripting, He's giving, you know, read read me or prompt style guidance to the agents, so that may reduce our our ability to reproduce things, though. So there may be a balance. So I'm gonna, as a test, I'm assuming this is gonna work. I'm gonna put a link in the chat here and see if that link works for you. That should open. It's the same link. Yeah, it's exactly the same link without the UTM source on it. It works.
+
+Speaker 2  12:10  
+Yep, yep, it does work. It shows the transcript.
+
+Speaker 1  12:14  
+Okay, good.
+
+Speaker 2  12:16  
+Yeah,
+
+Speaker 3  12:16  
+yeah.
+
+Speaker 2  12:17  
+Even it's opening at my end as well.
+
+Speaker 1  12:19  
+Okay, so one of our our to-dos is to automate pulling these transcripts, and I'm thinking that if if this link is actually active, then we can just maintain a CSV file containing all of the previous weekly transcripts, and rather than pulling from an API, we can just go right to these HTML pages and grab the transcript. There is perhaps a cleaner way to do that if either of the LLMs wants to propose how we can interact with OtterChat, given that we are using a free account now in the chat itself. There's not like a separate way to grab a link, and then when I look at the link, I think it's the same one. Starts with j6 seven. Yeah. Okay. There's like a link here at the top to Rob Rajat, but I can't click on it.
+
+Speaker 2  13:45  
+Green songs are also displaying well.
+
+Speaker 1  13:49  
+What's up?
+
+Speaker 2  13:51  
+The screenshots, those are also displaying very well, you know, on live, real time.
+
+Speaker 1  14:11  
+All right. Well, let's pivot back and look at our Veracell setup here. So we have this CloudRoot repo and debut. like 28 days ago, she added this link, but it's restricted. So I thought, well, maybe we could try to reproduce the steps and attempt to create our own. I mean, ideally, everyone who's contributing has a Veracell account, so they can use it as their staging area. In the past, we've used GitHub repos for staging, which works great for static pages. You can just go to your account.github.io/localsite. That's one repo we have, or slash team. So even when those repos have like a Rust backend, we always design them to still work static. But now we're going to start utilizing some backend environmental variables. So I'm not sure how clear this is going to. If I follow these steps, will it guide me into creating the Veracell account? So on the other page here, I have a Veracell account open, and it has an existing chat that we have. So this is where the root is pointed right into the chat repo itself. I think yeah. So first, I'm going to see if this one is still running. So that's ModelEarth. dot baracell. dot app. Typically, you have to like kickstart these every 14 days, or at least the super base backend has to be restarted. It does say it's ready, so perhaps that is not the case. Okay, yeah, so it's up and running. Great. So if we put a sign in, tells us we can't reach the database, and this is where we see that the 14-day time period has been exceeded. So I click that. Good. It takes me to Superbase. Kind of subtle, but a little I there. If anyone wanted to tweak that, I think it'd be better to make it a little more obvious, but only because an eye icon suggests we're going to see more information, and really we kind of want to like take action, go to Superbase. You could the link could be kickstart or something like that. Okay, so once I'm in Superbase, I got to figure out what to log in with. so I've never seen this before. The ChatGPT now has their own social login. It's kind of interesting. They didn't call it OpenAI. Okay, so I'm going to look in my. Well, first of all, before I go look at my password file here to get my SQLBase log, and I'm gonna share Myla with the chat group. Myla, come here. Where are you? There she is. Oh, Myla, turn around. That's your tail. She's saying hi. Come here, Myla. All right, this is Myla. Oh, she's busy looking at the kitchen. There, there she is. Oh, oh, oh! It's hard to angle this thing up, up, up, up, up, up, up. Okay. So we can have the the chat process create a Myla hail way. We we need more information. We won't do that this time. All right. So back to my Superbase login. Let's see if I can figure out which one to use. So we're switching from Superbase to making Neon the default, and Neon is owned by Databricks, and it does not time out after 14 days. It has a really nice interface too. So I got one I created back in January. Oh, that's lacked last year. It's kind of like I get the impression that I may not have the login for this, which is Troublesome, I suppose. Well, this is a case where we might want to spin up another super base. I'm going to try the two logins that I do have. Don't see that off screen here. I suppose it's possible. I just used GitHub, but I don't know. Let me try that first. All right, so I'm in there, and I don't see any. I see create an organization, and I do not see any existing stuff. So I suppose it's like a brand new attempt. So I'll make a note that that did not work, and I will do attempt number two of three. And if if you want to dig around, I think this is where it could be like the same with the Neon database.
+
+Speaker 1  21:17  
+And Second attempt. Looking at the audit logs created profile, there's like nothing there. Okay, so we're gonna log out, log in with another account. Okay, so that one actually remembers the login at least. All right. So, having logged in with second account, I do see a Model Earth local tree plant as it's paused. We're clicking resume. My mom. Hey, mom. Uh, how about another 30? I'm on my weekly call right now.
+
+Speaker 3  22:32  
+Watch the eclipse tonight. 10 o'clock. Call me later
+
+Speaker 1  22:36  
+tomorrow. Okay. Bye. My mom said to watch the eclipse tonight at 10 o'clock. Is that true? Is there is there a full lunar eclipse?
+
+Speaker 3  22:49  
+Yeah, there is a lunar eclipse.
+
+Speaker 1  22:51  
+Oh, nice. That's an early one. Usually they're like at three a.m. from my previous efforts. I'm not sure. look at a lunar, but they're usually just kind of very red. They don't usually have like a very distinct shadow edge. So this one is starting. The chat is starting up. Going back to whoa, what am I seeing here? Veracell. This looks valid. Oh, that's where we started, where the superbase wasn't going. Yeah. All right. It's coming up. Coming up. Got the Postgres database. Yeah, we don't know if that's what the front of the varicel one is utilizing, because my notes are inferior. They say the exobase project was here, and that was deleted because it exceeded 90 days of of non use. So if you if these if you don't catch it after 14, you got until 90 to to save it, or it just goes away. But I think what I did is I started another test. I lost my advance. Okay, so started this other test. I'm just going to delete the old notes. Well, I just add to it. Say there's one called local model.earth local. The name suggests that that's not used for the live site. Maybe it's for local development. Hey, that'd be a cool use for a bot just to get these restarted every 14 days. That would probably require browser access. I think that's kind of the the current explosive use of agents is at least with what I'm seeing with XAI Grok, they're starting to get advocate more like browser integration. So before it was like a very careful let's ease this out. But I think the Grok XAI must feel comfortable with the security issues enough to let Grok do some level of automation in browsers. So there's like when we saw Chat GPT is like a login for Veracell here, right? Or was that Superbase? I guess that was Superbase. So that could be pretty neat to integrate Chat GPT with Superbase to store things. So it hit me a couple weeks ago, like why Google is making so much money. They're like the main storage backend for XAI and all these other big efforts. You know, so it's not just the consumer that's purchasing Google directly. They're they're paying a little Google fee when they're purchasing all these other services. So it seems to me likely that Chat GPT would also be using Google, and I find it interesting that there's so much crossover with each these companies invest in each other. I don't know if there's a there's more of a direct tie between Google and SpaceX, but I know that ChatGPT OpenAI invested in Cursor, which I was like, what? That's surprising because maybe they made a good chunk of change when Cursor got sold for $60 billion to SpaceX. Maybe they got some good training data because OpenAI Codex was really good. Like, might be more than just having access to GitHub. Good.
+
+Speaker 3  27:46  
+I wouldn't scientifically be using Visual or something, you know, because OpenAI, unless only with open stuff.
+
+Speaker 1  27:57  
+What did you say about OpenAI?
+
+Speaker 3  28:01  
+Yeah, like ChatGPT wouldn't be using Azure, Microsoft Azure, because OpenAI has some use of
+
+Speaker 1  28:12  
+they have like their own version of Azure.
+
+Speaker 2  28:16  
+No, no, no. For the story, ChangePT would be using Azure or something.
+
+Speaker 1  28:22  
+Oh, instead of Superbase.
+
+Speaker 2  28:24  
+Yeah.
+
+Speaker 1  28:26  
+Well, that I would. I think they just support everything they possibly can. But Superbase has just kind of cornered the the web developer. You know, it's and OpenAI is by no means like locked into Microsoft. Microsoft, I'm sure, would love to have them just use Azure, but it's more of the fact they have a social login, and with these social logins, those are probably like a lot of bots would just go in there and you know create the Subabase account or create the Azure login, or maybe they do it in partnership with you through your browser. Those are all cool opportunities to figure out how to like manage a bunch of keys, and just kind of that will let the the AI just go through your private keys and and manage your accounts. It's kind of a brave new world we're entering pretty quickly. I just I haven't I've yet to see like what is the key storage wallet? You know, does Google have a good way to manage? I mean, I guess your in many ways your browser really is your key storage wallet that kind of makes sense because you use like the Chrome password process that remembers it. Hey, Venkata! Oh, just so you're here, Venkata, and Robbie's here too. Welcome, Robbie. I put a hi,
+
+Speaker 3  29:57  
+Loren.
+
+Speaker 1  29:58  
+Hey,
+
+Speaker 4  29:59  
+hey, Loren.
+
+Transcribed by https://otter.ai

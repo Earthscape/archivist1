@@ -1,0 +1,56 @@
+ACTION ITEMS
+
+1. Action: Continue learning/evaluating agentic frameworks (Pydantic AI, Microsoft Presidio) for parsing transcripts
+   Owner: Speaker 1
+   Due date: Not specified
+   Evidence excerpt: "that's what I'm trying to learn and understand. But I don't know how long it will take."
+   Speaker: Speaker 1
+   Timestamp: 8:21
+
+2. Action: Pull down the Archivist repo and run an experiment with it
+   Owner: Loren Heyns
+   Due date: Not specified
+   Evidence excerpt: "let me pull down the archivist here, and we'll we'll do an experiment."
+   Speaker: Loren Heyns
+   Timestamp: 15:45
+
+3. Action: Add a subfolder under Archivist One for the LangChain-based GitHub Actions automation work
+   Owner: Speaker 1
+   Due date: Not specified
+   Evidence excerpt: "add like a subfolder under Archivist One. Maybe call it LangChain or something that you feel is a name for what you're doing."
+   Speaker: Loren Heyns
+   Timestamp: 22:22
+
+4. Action: Build the transcript-processing implementation using JavaScript instead of Python
+   Owner: Speaker 1
+   Due date: Not specified
+   Evidence excerpt: "I'm going to use Javascript now since everybody's like, we have built it using Javascript."
+   Speaker: Speaker 1
+   Timestamp: 22:54
+
+5. Action: Sync the LangChain part of the project with the Model Earth API key provider settings page
+   Owner: Speaker 1
+   Due date: Not specified
+   Evidence excerpt: "Yeah, I think that's the the coolest approach is make this page here work with whatever you do"
+   Speaker: Loren Heyns
+   Timestamp: 24:00
+
+6. Action: Turn on GitHub Pages for the Veracel root repo
+   Owner: Loren Heyns
+   Due date: Not specified
+   Evidence excerpt: "I'm going to turn on GitHub Pages, and then everything, any anything public"
+   Speaker: Loren Heyns
+   Timestamp: 26:36
+
+DECISIONS
+
+1. The existing API provider architecture (OpenAI/Claude/Gemini/XAI) in the requests repo replaces the need for using LangChain in the chat repo.
+2. The transcript-processing/LangChain automation will be built using JavaScript rather than Python.
+3. The LangChain-based GitHub Actions automation work will be kept confined to a subfolder within the Archivist One repo rather than mixed with other approaches.
+
+OPEN QUESTIONS
+
+1. Whether there is a fee for using the OpenAI API versus Gemini being free.
+2. How to connect/sync the API key settings (stored per domain, e.g., local storage) with GitHub Actions running on GitHub.com.
+3. How the existing RAG setup is able to ingest and answer questions about all the data and code in the Webroot repo's submodules.
+4. Whether a dedicated PII-detection library like Microsoft Presidio is actually needed versus relying on an LLM's own capability.

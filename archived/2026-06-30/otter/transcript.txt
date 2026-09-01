@@ -1,0 +1,205 @@
+Ravi Kakadia  1:32  
+Hi, Loren.
+
+Speaker 1  1:34  
+Hello.
+
+Ravi Kakadia  1:37  
+Loren, I I have a request today. Can I? Could you answer my questions fast? Because I had trouble today at my house, and I have to go clean.
+
+Loren Heyns  1:51  
+Okay, we're picking up my daughter at the airport, so we're gonna wrap it up at 730 here. What's up? What's your question?
+
+Ravi Kakadia  2:00  
+Oh, I sent some question in the Discord. Like, um, you asked me to create the Archivist One repo and parse the transcript there. Yeah. So I I wanted to ask, what should I look into next? Because I already parsed the output using Codex. So should I look into how to parse uh how to make the parsing smoother, or how to
+
+Loren Heyns  2:24  
+like if we upload a file, maybe having it either trigger running or we just run the script and check what hasn't been run yet. What are you saying?
+
+Ravi Kakadia  2:36  
+Yeah, so we upload the auto order transcripts into the archivist repo, and then we ask the LLM to parse those transcripts that have not been parsed, and give us actionable items that we can use. How
+
+Loren Heyns  2:54  
+do you ask? Like, how do you trigger the LLM? Do you have a set of guidelines that you use to guide?
+
+Ravi Kakadia  3:04  
+No, I technically I just ask Codex or any LLM to just scan the agents.md Markdown, and there's some set of instruction written, and it just parse the transcripts for me. That's basically what I do. But what else can I do instead?
+
+Loren Heyns  3:26  
+Well, think about how we can integrate it with the chat repo. And also, the goal would be that any file that hits the archivist would just automatically trigger like pre-generated logic. I mean, I think it's going to get pretty
+
+Ravi Kakadia  3:46  
+extensive
+
+Loren Heyns  3:47  
+because we want to have a lot of rules, like protect people's privacy. We want to create tasks. So, from everything we say in the meeting, we want the LLM to be well guided, so it doesn't create a task that we don't want, and then we want it to be able to like also you know recognize what's just kind of like
+
+Speaker 2  4:08  
+shatter
+
+Loren Heyns  4:09  
+versus new projects. Okay, so our code chat has like our whole overview of the existing system. So the ideal process will basically plug into an awareness with an. I can. I would create an agents.md file to guide it, and we'll tell it about our other team slash agents.md. That one has the best overview. I realize you have to run, so that's probably a great. That's probably like way more than you'll, you know, attack attack in the next month or two. I would think. And then anyone who's on the call who wants to contribute, really cool space. So you see, Ravi's note taker is in the call, and that's an Otter note taker. So we should figure out how to also automate the process of pushing it to the repos from Otter. So you don't have to manually move it. You can just go and hang out on the beach, and it'll just
+
+Speaker 1  5:15  
+do the
+
+Loren Heyns  5:16  
+work for
+
+Ravi Kakadia  5:18  
+us. I think we researched that, but the author has paid options for it.
+
+Loren Heyns  5:23  
+Yeah, I'm I'm looking towards starting to do some like small pays for things. So if it's under like $10 a month, that might be something we would look at. But more so as like a service that we would like offer that other other projects could use. I don't. We're not desperate For it, so it's cool to do what you're doing, just manually move it. And then we-the question really is going to be like, do we want to have like a Node.js task that goes through and kicks off the LLMs? I think so, because everything else in our Veracel repo is managed with Node JavaScript-based server-side work. So I would steer that direction. I would be really interested to see how Veracel can support that because you're interacting with the GitHub CLI ideally to move files back and forth. So the LLMs. The beautiful thing about the chat repo is that you can enter any key for any model that you want. So you can you can use a Gemini's free key or any of the other ones you're paying for, and we can also support like running code like Cloud CLI, Cloud Code CLI server like on our laptops, basically. So that would be pretty sweet. So we got a new person on the call. Archie's here for the first time, and Archie's going to help with our feed player integration. So welcome, Archie. And I'm realizing we have two note takers in. So Rajet's also at some point, I'm thinking we'll have about 20 note takers and like one person, me. But I don't know. Like we used to have 40 people, and right now I'm just like we've literally shut down any avenue unless you're resourceful and you like take the time. And I know some people have contacted me like a couple months ago, and then return to say I'm still interested. So I'm I'm eager to have what we're doing, but I I don't like when I can't keep up because I've just been like so overwhelmed with a big .NET project that I'm doing that it's been really helpful not to have to worry about a lot of other stuff. So it's been helpful time for me to kind of take a a break, a code vacation to do more coding. And I'm picking up my daughter. Like I said, she's coming back from New York today, so that's why I'm running around here, catching up, just hung a picture on the wall and getting the last things cleaned up. So Neha, how's it going?
+
+Speaker 3  8:02  
+Hi, Loren. How've you been? I'm good. How are you? I'm good.
+
+Speaker 4  8:06  
+It's good. I've
+
+Speaker 3  8:08  
+been been occupied with some other commitments, and I'm just trying to catch up now.
+
+Loren Heyns  8:14  
+That's good. Yeah, keep keep focus on job searches and do doing cool stuff. The like, there's a couple people who are super active, but they don't never come to meetings. It's like Diva and Monique, so they're they've made progress this week on our Veracel Root, and I know that like that ties into some of the work Ravi's doing. So that's like a cool area to to look at. the The new folder in our Model Earth GitHub account is called Veracel Root, and we're gonna and actually do that now. I'm gonna add the feed repo. So Archie, this is what you're gonna work with. This is gonna be the second sub module in the Veracel root. So our web root folder has like 30 sub modules, and so we're gonna starting kind of with like a very lightweight, plug it in my monitors here. We're going to start with this really lightweight, and so Deepa got it working. So we went back and forth, like, how do we run Veracel without having, you know, the main chat as the root? And it's pretty simple. It was just creating setting the package file JSON separate, and now we're trying to figure out how to avoid like too much redundancy where we have like the you know these package files in more than one place. So I think she's got some good ideas for that. So it'll be interesting to see how much backend work we can do with Veracell, you could really accomplish a lot when you think about it, because it's like a free, freely hosted site. Like they must like throttle how much processing time you have going on, because if we're interacting with these LLMs, we could just be doing all these calls and moving lots of files around. So I'm going to I'm just going to shift some stuff off one screen here. This always takes me more time than I want it to. I'm trying to be
+
+Speaker 1  10:11  
+aware of what's on this one screen.
+
+Ravi Kakadia  10:16  
+One one question, Loren.
+
+Speaker 1  10:18  
+Yeah. Before
+
+Ravi Kakadia  10:19  
+before I go, should I first start with the parsing of the transcripts, or should I integrate the Pinecone and the Voyage for the chat into the like the transcript parsing?
+
+Loren Heyns  10:33  
+It's really up to you. That I I think you'd learn a lot from the Pinecone work, and we are we're waiting for this new service that's coming from Voyage, which is the Knowledge Nexus, but apparently they're limiting it, so it might not be something we get in the short term. So I think just using what we've already built in the chat repo, and there's also the code chat repo that that complements it, and just expand what we've already got, rather than like reinvent the whole rag process. RAG is not-I don't view RAG as like essential or even like a necessary thing anymore because context is so large now. We could send a whole repo into into Google.
+
+Ravi Kakadia  11:21  
+Yeah,
+
+Loren Heyns  11:22  
+and I think that's a smart way to do it. Just question of cost. I don't think it'd be too outrageous. I don't know how the free Gemini, what what kind of limitations that would have.
+
+Speaker 1  11:37  
+See here,
+
+Loren Heyns  11:40  
+another desktop is the best way to do this. Share that.
+
+Ravi Kakadia  11:50  
+Okay, I will do that then. I'll make the parsing smoother. And I I just thought about the privacy checks and everything. I think there are something something called guardrails. That's
+
+Speaker 5  12:04  
+ideal. Yeah, yeah.
+
+Loren Heyns  12:05  
+Use something that's pre-existing because then we have like a lot of people thinking about how
+
+Speaker 1  12:10  
+to do
+
+Loren Heyns  12:11  
+it. Be more protective, and I think that's a really important way to to convey what we're up to. That we're
+
+Ravi Kakadia  12:17  
+so. I will look into the guardrails thing so we can use it to yeah, and I also look into the automating transcripts upload to GitHub. Yeah, I'll I'll do that.
+
+Loren Heyns  12:29  
+And even if you don't get the upload, the process of kicking them off is a really cool way to do it. Maybe there's like a you know like a action within GitHub that would every up a new file arrives, analyze it, and then send it to this extra, you know, additional file where it process. Yeah, that sounds good.
+
+Ravi Kakadia  12:49  
+GitHub Actions can do that. Yeah, yeah, got it.
+
+Loren Heyns  12:52  
+Perfect.
+
+Ravi Kakadia  12:53  
+And one, one last question. So currently, should I fork the archivist one repo, or should I just can I just directly clone it and push my code?
+
+Loren Heyns  13:05  
+I think it's best to fork it. That's just kind of the general way that we've approached it. It's very easy for me to then do a PR on yours. The the question would be like once you have it automated. If you do have the pull automated from Otter, then just I'll I guess I'd pull yours and then we would turn your pull off and it would just run in a new location. So, but this way you can have a working test environment. We might be will have some front end pages in there that will you'll see through your GitHub.io entry point there. So,
+
+Ravi Kakadia  13:39  
+okay, got it.
+
+Loren Heyns  13:40  
+Yeah, that works good. Okay, cool.
+
+Ravi Kakadia  13:44  
+Loren, bye, Loren, I'll be going there to clean my house. Okay, we
+
+Loren Heyns  13:51  
+know your note taker is still listening, so it's kind of like yeah,
+
+Loren Heyns  13:54  
+yeah. Okay,
+
+Ravi Kakadia  13:56  
+cool. Thank you. Bye bye.
+
+Loren Heyns  13:57  
+Very welcome. Yep. Catch you later. So I'm almost done moving things off my screen here. Sorry for the delay. I guess I was trying to like open a second. Oh, there we go. Maybe I got it. It's not doing what I wanted to do. Pause. Pause. I think well, it's like I got this newer machine, so I'm getting spoiled with the number of windows I can open, and then I want to pivot back. So just give me one more minuteo.
+
+Speaker 1  15:02  
+Almost there. The end is not. The end is near. Too many.
+
+Speaker 3  15:08  
+Take your time. Take your time.
+
+Loren Heyns  15:10  
+Playing the whack-a-mole game, just closing. I have three monitors, and I-I could have. Well, I have a fourth one, but I haven't plugged it in yet. So let's see here. Okay,
+
+Speaker 1  15:30  
+jeez, it's like how does one person do so many things? This is good to go. Good to go.
+
+Loren Heyns  15:41  
+Did you guys see the starship floating in the Indian Ocean for the last five or six days? My son is at works at SpaceX, and it's the first time it hasn't burned or sunk, blown up. So just reminded of that because I have pictures open here. All right, here goes. I'm going to share my screen. Okay, so that's not the Indian Ocean. This is our. This is an example Of the embedded
+
+Speaker 1  16:23  
+closest.
+
+Loren Heyns  16:27  
+So, okay. So this one in our Veracell chat is an embedded JSON one at ChatSpot.
+
+Speaker 1  16:50  
+If you have. That's weird. Did it not load?
+
+Loren Heyns  17:15  
+Maybe it's maybe here. It's just slash no. That's interesting. There it goes. Okay, so this is going to be our first integration with the chat LLM questions, which currently are on this page in the bottom, with our search features for either CSV or SQL. So this right now is coming from CSV files, but now we have some new SQL processes we might use. So that might be fun to, if you're interested in any of that, or if you're interested more on the AI side, Neha, you could like look at how this chat input works here, and it can either go like embedded in the page or or like somehow in the top. I like this idea of it if it's like a floating area, like you just kind of drag this. So imagine if we started on the chat page, and we could just pick up this whole bottom area, and move it around. So whatever we're looking at, we could be watching a movie in the feed player, or we could be, you know, looking at the notes from the meeting, and then all of a sudden you can ask a question just wherever you're at, you know. So that might be a cool area to do, like right off, like put a draggable top on this, and also maybe like a way to minimize it by closing
+
+Speaker 1  18:44  
+it.
+
+Loren Heyns  18:46  
+If that sounds interesting, and then in this page, which is also I'm going to share both links. So this is first one is the embedded one here. So let me jump over to the chat window. Where are you chatting up? It always gets covered on the side there. Staff a lot of the tricks of Google Meetup. So first one is embedded, and Archie, grab these too because we'll we want to create something that we can integrate with the feed player, and I think this will be a really interesting learning opportunity because, like, Feedplayer is like a React first, and then the Veracel is Next.js first. So, coming up with ways to you know create these mutually shareable components, and then even separating them from this chat repo. So, from that map to see it as like a standalone version. Hit back a couple times here, and there's the feed player. And somewhere I had it open just now. So if I go to the trade folder, I think we can. There's a couple ways to get it, but profile, and then we can go to like trade flow. So there's this. That's actually pulling from the SQL database that drives the map. And on the side here, if you go to like U.S. states trade map, there it is as its own standalone. I don't have any state. He used to go to New York. It's going to Georgia. I always feel a little self-conscious of the overemphasis on Georgia because we want this to be as universal as possible. So, in addition to the state maps that are the U.S. map here, we have this other trade flow map, which is the entire world, so you can pick a country here and filter by that. You've got importing country, changed it to Germany, so you can see how that kind of like jumps around. So that's the other link that we can attempt to make that an embeddable process. It might make the most sense just to reuse the same state map and just use it for countries, you know, rather than having two. But there's other cool stuff here. As I scroll down, you can see the Sankey chart. There's a bar chart. Okay, so I think I'm gonna I'm gonna sign off in 10 minutes. So Archie, I'm gonna talk about the feed player. That was like my main goal here too. And you guys are welcome to team up. Email me Neha if you're wanting to like join any of these other groups, and I'll I'll include you when I communicate with people.
+
+Speaker 3  21:45  
+Sure, sure, sure, Loren.
+
+Loren Heyns  21:46  
+Okay, cool. So Archie, with this, there's a lot of directions we can take this. So I'm just going to kind of like talk off the cuff, and then you can come back to the otter notes if you want to like reference it. So first thing that strikes me is we've got too many icons in this lower right corner. We'll keep the three dots. The one for expanding full screen is going to be better in the upper corner, the upper right. But we also want to consider how we utilize that upper right corner. We don't want to add clutter there. So, having said that, I think Google YouTube is does a pretty effective job, and they probably use the lower right. So, we will approach it with a flexibility. Another one here on the bottom is this. Choose your view, so this will like filter out the APIs. So this whole feed player is designed to take any API. You have those in the upper left. You choose the API, and then so I just chose NASA, and I see like some space shots. I can jump through it. You got a play mode, so if you want to pause, you can. So it starts moving forward. It does a nice combination of of processes. So there's some to dos here. If you scroll down. Must have been moved to another page, which is good. Yeah, let me see if I have a. I search for to do. You'll see like our progress page here. Anyway, look around on that. You'll it'll jump out at you. And there's some things here that aren't that are on the areas to work on. The intent is for this lower swiper to integrate so that you could actually like move back and forth and use it like a film strip. And if you go to our home repo, you'll see that we have the film strip embedded here. And thankfully, or I'm I'm pleased that it continues to work because I always worry that it's going to break as we're moving something, but it's pretty solid. It's pretty nice little swiper. It's swiper is designed for like mobile apps, so you can like slide it with your finger and just pretty flexible. There's a lot of different layouts to it, so I. assume we'll put like the feed player into a space like this eventually, like this full screen approach. And in doing that, you know, even the idea of having an icon in the upper right, kind of like I like how this one is above it here. You know, so like if we're going to have this expansion, let's let's approach, let's do it this way. Let's have it in a space external to the player, like not on the player, and we'll create the a toggle so that if we do want to have it in the player, it can be there. So, in this one, if you click the top, the expansion is right here in that corner. So I like that. I think people will learn that that's there. It's not ideal, but just keeping that clutter off the main area. So let's give this a try. If I expand it right there, I'm just expanding the screen. So I technically haven't expanded the player, so that's the main reason why it would make sense. Like I like the idea of having it just very dim, and then you roll over that upper right corner, and then it becomes visible. And at that point, I think having maybe three, two or three icons, one of them being this nine button one, if it's not visible elsewhere on the page, and so these things get complicated quickly. The existing three dots on the home page is like a location filter, so it lets you jump for to this Earth view and to the other. Like essentially, when we look at the trade flow map, that would be like a countries map which we have here, and then we have under that states. So what's currently just a map for selecting states becomes like the full. Let's see all the trade moving between the states, and it becomes a feature. I mean, like a just one of many views for the map, you know, like we might not even show the trade flow, but we might try to entice the user into it.
+
+Loren Heyns  26:46  
+And these things will all be driven by the the chat conversation. So if there's already a chat going on about trade or about something that's like within an industry, like I'm talking about fishing in Southeast Asia, well, boom, and we can throw the map up and have all the the lines to show where the top areas of exports and imports are. So you'll notice like a play button here on the right. This is a really interesting crossover. What if I click that now? It starts playing this timeline below the map of the what's basically like weather patterns, but includes all kinds of other cool filters. If you click on this Earth area here, so the Earth one, which is we don't maintain this. We're just using like an iframe, but you can see all the different ways you can look at like chemicals in the atmosphere. You can look at waves in the ocean. It's just amazingly flexible. So that said, like if we if we click back back to our feed player, like there's, I'd have a very strong aversion to to react because I feel like it kind of ties my hands. But then the reality is, like, if you're using vibe coding, React is is a great environment to work in. So you don't have to worry about your hands being tied because you're just asking for updates, right? So the probably the hardest thing I encounter when I'm using like these node backends is just like how to tell it what I'm trying to edit. Like I'll right click and there's no idea on the div, and I'm like, I don't know, you know. So you just have to be very general. So I'm gonna, I'm actually gonna sign off. Did you guys have any more questions? I think that's a good overview. Normally we talk for one hour to three hours, so today is kind of the exception. So I'm gonna head to the airport and pick up my daughter and shoot me an email and I'll see next time. Cool, thank you.
+
+Speaker 3  28:47  
+I'll email you, Loren. Thank you.
+
+Loren Heyns  28:49  
+Okay, excellent. Thanks and welcome again, Archie. Talk to you soon. Yep.
+
+Ravi Kakadia  28:53  
+Okay. Sounds nice.
+
+Speaker 1  28:55  
+Bye
+
+Speaker 3  28:56  
+bye. Bye bye, Archie.
+
+Transcribed by https://otter.ai
