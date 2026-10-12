@@ -2,6 +2,16 @@
 
 Oct 1, 2026 · @Ravi Pareshbhai Kakadia
 
+> **Update:** the Worker described throughout this doc as living in
+> `cloudroot`'s `transcript-intake/` folder has since moved to its own
+> repo, [`tonic`](https://github.com/ModelEarth/tonic) (PR:
+> [ModelEarth/tonic#1](https://github.com/ModelEarth/tonic/pull/1)), so it
+> can be added to other projects as a git submodule. Nothing about this
+> repo's own code or contract changed — the webhook payload, branch
+> naming, and file path it delivers are identical either way. References
+> below to "the cloudroot fork" or "`transcript-intake/`" describe where
+> it was originally built; treat them as historical.
+
 > **Status as of Oct 2, 2026:** Phases 0–2 are done. The Worker
 > (`transcript-intake/` in the `cloudroot` fork) is deployed and has
 > already processed one real meeting end-to-end — it validates the
